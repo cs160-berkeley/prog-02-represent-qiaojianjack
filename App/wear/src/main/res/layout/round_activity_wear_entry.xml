@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cs160.represent.WearEntryActivity"
+    tools:deviceIds="wear_round">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/curr_rep"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/background"
+            android:text="Current\nRepresentatives"
+            android:textSize="28px"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:background="@color/dark_background">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star"/>
+
+            <TextView
+                android:id="@+id/location_watch"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:text="ALAMEDA, CA"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:gravity="center_horizontal|center_vertical"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/star"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/election_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/darkblue"
+            android:text="2012 Election\nResults"
+            android:textSize="28px"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

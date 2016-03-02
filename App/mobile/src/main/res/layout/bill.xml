@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    android:id="@+id/bill"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginBottom="5dp"
+    android:ellipsize="end"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:text="02/11/2016\nS. 2552: A bill to amend section 875(c) of title 18, United States Code, to ..."
+    android:background="@color/middleblue"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_background"
+    tools:context="cs160.represent.RepList">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/background"
+            android:id="@+id/view">
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/rep_info_page_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Representatives"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    />
+
+                <TextView
+                    android:id="@+id/location_rep_info"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="ALAMEDA, CA"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+
+        </Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            card_view:cardBackgroundColor="@color/darkblue">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/name_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TableLayout
+                        android:layout_width="196dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        >
+
+                        <TableRow>
+                            <TextView
+                                android:id="@+id/title_rep_info"
+                                android:layout_width="0dp"
+                                android:layout_weight="3.8"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Senator"
+                                android:textSize="20dp"
+                                android:textStyle="italic"
+                                android:textColor="@color/white"/>
+
+                            <ImageView
+                                android:id="@+id/party_rep_info"
+                                android:layout_height="41dp"
+                                android:layout_width="0dp"
+                                android:scaleType="fitCenter"
+                                android:layout_weight="1"/>
+
+                        </TableRow>
+                        <TableRow>
+                            <TextView
+                                android:id="@+id/first_name_rep_info"
+                                android:textSize="28dp"
+                                android:text="Dianne"
+                                android:textColor="@color/white"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:id="@+id/last_name_rep_info"
+                                android:layout_marginTop="5dp"
+                                android:textSize="28dp"
+                                android:text="Last Name"
+                                android:textColor="@color/white"/>
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <ImageView
+                        android:id="@+id/photo_rep_info"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/email_rep_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sampleemail@us.gov"
+                        android:textStyle="italic"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:id="@+id/website_rep_info"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="http://www.feinstein.senate.gov/public/"
+                        android:textStyle="italic"
+                        android:textSize="18dp"
+                        android:textColor="@color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/term_end_date_header"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="TERM END DATE"
+                            android:textSize="18dp"
+                            android:textColor="@color/grey"/>
+
+                        <TextView
+                            android:id="@+id/term_end_date"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:textAlignment="viewEnd"
+                            android:layout_height="wrap_content"
+                            android:text="01/03/2018"
+                            android:textSize="18dp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/committees_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="NAME OF COMMITTEE"
+                        android:textSize="18dp"
+                        android:textColor="@color/grey"/>
+
+                    <TextView
+                        android:id="@+id/committees"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Senate Select Committee on Intelligence\nSenate Committee on Appropriations"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/recent_bills_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="RECENT BILLS"
+                        android:textSize="18dp"
+                        android:textColor="@color/grey"/>
+
+                    <LinearLayout
+                        android:id="@+id/recent_bills"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white"/>
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="260dp"
+                    android:background="@color/darkblue"
+                    android:text="BACK"
+                    android:stateListAnimator="@null"
+                    android:textColor="@color/grey"
+                    android:textSize="18dp"
+                    android:gravity="center_horizontal|center_vertical"/>
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+        </ScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

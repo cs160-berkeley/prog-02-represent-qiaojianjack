@@ -1,0 +1,107 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rep_fragment"
+    tools:context="cs160.represent.RepFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_chevron_left_white_24dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingTop="15dp"
+                android:layout_weight="2.2">
+
+                <TextView
+                    android:id="@+id/title_watch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="Rep."
+                    android:textSize="14dp"
+                    android:gravity="center_horizontal|bottom"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"/>
+
+                <ImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/photo_watch"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/dianne"
+                    />
+
+                <ImageView
+                    android:id="@+id/party_watch"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/dparty"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/name_watch"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:layout_marginTop="5dp"
+                android:text="Dianne Feinstein"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="17dp"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/rep_to_phone"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="TAP TO SEE ON PHONE"
+                android:gravity="center_horizontal|center_vertical"
+                android:textSize="12dp"
+                android:stateListAnimator="@null"
+                android:textColor="@color/grey"
+                android:background="@color/background"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_chevron_right_white_24dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
