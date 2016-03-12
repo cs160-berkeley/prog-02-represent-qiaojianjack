@@ -38,7 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="ALAMEDA, CA"
+                    android:text="Sample County, CA"
                     android:textSize="20dp"
                     android:textColor="@color/white"/>
             </RelativeLayout>
@@ -181,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="NAME OF COMMITTEE"
+                        android:text="COMMITTEE"
                         android:textSize="18dp"
                         android:textColor="@color/grey"/>
 
@@ -190,7 +190,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Senate Select Committee on Intelligence\nSenate Committee on Appropriations"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="@color/white"/>
 
                     <TextView

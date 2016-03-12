@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Represent</string>
+    <string name="location_type_latlong">latlong</string>
+    <string name="location_type_zipcode">zipcode</string>
 </resources>

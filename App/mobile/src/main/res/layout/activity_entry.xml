@@ -18,15 +18,38 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/entry_screen_title">
         </ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp">
+
+            <com.twitter.sdk.android.core.identity.TwitterLoginButton
+                android:id="@+id/twitter_login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="3dp"
+            android:text="Then..."
+            android:textAlignment="center"
+            android:textColor="@color/middleblue"
+            android:id="@+id/or"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/zipcode_input"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
             android:inputType="number"
             android:hint="ENTER ZIPCODE HERE"
             android:textSize="24dp"
@@ -38,13 +61,13 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:text="Or"
             android:textAlignment="center"
             android:textColor="@color/middleblue"
             android:id="@+id/or"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <Button
             android:layout_width="match_parent"
@@ -55,6 +78,10 @@
             android:textColor="@color/grey"
             android:stateListAnimator="@null"
             android:background="@color/blueshadow"/>
+
+
+
+
 
 
 

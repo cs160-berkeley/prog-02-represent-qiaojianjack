@@ -53,8 +53,8 @@ public class WatchToPhoneService extends Service {
         String command = intent.getStringExtra("command");
         toSend = command;
         if (command.equals(LOAD_INFO)) {
-            int repId = intent.getIntExtra("rep_id", 0);
-            payload = Integer.toString(repId);
+            String repId = intent.getStringExtra("rep_id");
+            payload = repId;
         }
 
         new Thread(new Runnable() {

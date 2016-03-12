@@ -24,7 +24,7 @@ public class RepFragment extends Fragment {
     protected TextView vTitle;
     protected TextView vName;
     protected ImageView vParty;
-    protected ImageView vPhoto;
+    protected cs160.represent.CircledImageView vPhoto;
     protected Bundle rep;
 
     public RepFragment() {
@@ -62,7 +62,7 @@ public class RepFragment extends Fragment {
         vTitle = (TextView) v.findViewById(R.id.title_watch);
         vName = (TextView) v.findViewById(R.id.name_watch);
         vParty = (ImageView) v.findViewById(R.id.party_watch);
-        vPhoto = (ImageView) v.findViewById(R.id.photo_watch);
+        vPhoto = (cs160.represent.CircledImageView) v.findViewById(R.id.photo_watch);
 
         vTitle.setTypeface(serifIt);
         vName.setTypeface(serif);
@@ -79,7 +79,7 @@ public class RepFragment extends Fragment {
             public void onClick(View v) {
                 Intent toPhone = new Intent(RepFragment.this.getActivity(), WatchToPhoneService.class);
                 toPhone.putExtra("command", "load_info");
-                toPhone.putExtra("rep_id", rep.getInt("repId"));
+                toPhone.putExtra("rep_id", rep.getString("repId"));
                 getActivity().startService(toPhone);
 
             }
@@ -101,12 +101,10 @@ public class RepFragment extends Fragment {
         } else {
             vParty.setImageResource(R.drawable.iparty);
         }
+
         //TODO: fix photo choose pipeline
-        if (rep.getInt("repId") == 1 || rep.getInt("repId") == 4) {
-            vPhoto.setImageResource(R.drawable.dianne);
-        } else {
-            vPhoto.setImageResource(R.drawable.jeff);
-        }
+        String repId = rep.getString("repId");
+        vPhoto.setImageBitmap(WearEntryActivity.photoMap.get(repId));
     }
 
 }

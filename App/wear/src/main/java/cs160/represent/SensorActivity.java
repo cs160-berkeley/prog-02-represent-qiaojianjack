@@ -68,11 +68,6 @@ public class SensorActivity extends Activity implements SensorEventListener {
         yAccel = event.values[1];
         zAccel = event.values[2];
 
-
-        Log.d("SensorActivity", Float.toString(event.values[0]));
-        Log.d("SensorActivity", Float.toString(event.values[1]));
-        Log.d("SensorActivity", Float.toString(event.values[2]));
-
         if (Math.abs(xAccel - xAccelPrev) >= ACCELEROMETER_THRESHOLD ||
              Math.abs(yAccel - yAccelPrev) >= ACCELEROMETER_THRESHOLD||
                 Math.abs(zAccel - zAccelPrev) >= ACCELEROMETER_THRESHOLD) {

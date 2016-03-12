@@ -72,11 +72,26 @@ public class PhoneToWatchService extends Service {
                 DataMap data = DataMap.fromBundle(reps);
                 data.putLong("time", new Date().getTime());
                 data.putString("location", location);
+
                 putDataRequest.setData(data.toByteArray());
 
                 putDataRequest.setUrgent();
                 Log.d("PhoneToWatch", reps.toString());
                 PendingResult<DataApi.DataItemResult> pendingResult = Wearable.DataApi.putDataItem(mApiClient, putDataRequest);
+
+
+                PutDataMapRequest imageDataMapRequest = PutDataMapRequest.create("/images");
+                DataMap imageDataMap = imageDataMapRequest.getDataMap();
+                imageDataMap.putInt("size", reps.getInt("size"));
+                imageDataMap.putLong("time", new Date().getTime());
+
+                ApiHandler.insertPhotos(imageDataMap, reps);
+                PutDataRequest imageRequest = imageDataMapRequest.asPutDataRequest();
+                PendingResult<DataApi.DataItemResult> pendingImageResult = Wearable.DataApi
+                        .putDataItem(mApiClient, imageRequest);
+
+
+
             }
 
         }).start();

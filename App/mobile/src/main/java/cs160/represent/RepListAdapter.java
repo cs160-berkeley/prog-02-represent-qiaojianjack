@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -38,7 +40,6 @@ public class RepListAdapter extends RecyclerView.Adapter<RepListViewHolder> {
         repListViewHolder.vEmail.setText(rep.email);
         repListViewHolder.vWebsite.setText(rep.website);
         repListViewHolder.vTitle.setText(rep.title);
-        //TODO: set photo
         if (rep.party.equals("Democratic")) {
             repListViewHolder.vParty.setImageResource(R.drawable.dparty);
         } else if (rep.party.equals("Republican")) {
@@ -46,9 +47,16 @@ public class RepListAdapter extends RecyclerView.Adapter<RepListViewHolder> {
         } else {
             repListViewHolder.vParty.setImageResource(R.drawable.iparty);
         }
-        repListViewHolder.vPhoto.setImageResource(rep.photoId);
-        repListViewHolder.vTweetHandle.setText(rep.tweetHandle);
-        repListViewHolder.vTweet.setText(rep.tweet);
+        Picasso.with(context).load(rep.imgUrl).into(repListViewHolder.vPhoto);
+        //repListViewHolder.vPhoto.setImageResource(rep.photoId);
+        if (rep.tweetHandle.equals("@null")) {
+            repListViewHolder.vTweetHandle.setText("");
+            repListViewHolder.vTweet.setText("No twitter data has found for this representative.");
+            repListViewHolder.vTweet.setTextColor(context.getResources().getColor(R.color.grey));
+        } else {
+            repListViewHolder.vTweetHandle.setText(rep.tweetHandle);
+            repListViewHolder.vTweet.setText(rep.tweet);
+        }
         repListViewHolder.moreInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +64,6 @@ public class RepListAdapter extends RecyclerView.Adapter<RepListViewHolder> {
                 toRepInfoView.putExtra("repId", rep.repId);
                 toRepInfoView.putExtra("location", location);
                 v.getContext().startActivity(toRepInfoView);
-
             }
         });
 

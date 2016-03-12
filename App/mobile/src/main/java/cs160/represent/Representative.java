@@ -1,19 +1,25 @@
 package cs160.represent;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import com.google.android.gms.wearable.Asset;
+
+import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by jianqiao on 2/27/16.
  */
 public class Representative {
 
-    public static HashMap<Integer, Representative> repMap;
-    protected int repId;
+    public static HashMap<String, Representative> repMap;
+    public static String location;
+    protected String repId;
     protected String title;
     protected String firstName, lastName;
     protected String party;
@@ -22,7 +28,11 @@ public class Representative {
     protected String tweetHandle, tweet;
     protected String termEndDate;
     protected ArrayList<String> committees;
-    protected ArrayList<String> recentBills;
+    protected ArrayList<Map.Entry<String, String>> recentBills;
+    protected ArrayList<String> billList;
+    protected String imgUrl;
+    protected android.graphics.Bitmap photoBitmap;
+
 
     public Representative() {
 
@@ -30,7 +40,7 @@ public class Representative {
 
     public void pipeToIntent(Intent intent) {
         Bundle bundle = new Bundle();
-        bundle.putInt("repId", repId);
+        bundle.putString("repId", repId);
         bundle.putString("title", title);
         bundle.putString("firstName", firstName);
         bundle.putString("lastName", lastName);
@@ -40,13 +50,18 @@ public class Representative {
         bundle.putInt("photoId", photoId);
         bundle.putString("termEndDate", termEndDate);
         bundle.putStringArrayList("committees", committees);
-        bundle.putStringArrayList("recentBills", recentBills);
+        ArrayList<String> billList = new ArrayList<>();
+        for (int i = 0; i < recentBills.size(); i++) {
+            Map.Entry<String, String> tuple = recentBills.get(i);
+            billList.add(tuple.getKey() + "\n" + tuple.getValue());
+        }
+        bundle.putStringArrayList("recentBills", billList);
         intent.putExtras(bundle);
     }
 
     public Bundle getBundleForWatch() {
         Bundle bundle = new Bundle();
-        bundle.putInt("repId", repId);
+        bundle.putString("repId", repId);
         if (title.equals("Senator")) {
             bundle.putString("title", "Sen.");
         } else {
@@ -55,8 +70,8 @@ public class Representative {
         bundle.putString("firstName", firstName);
         bundle.putString("lastName", lastName);
         bundle.putString("party", party);
-        bundle.putInt("photoId", photoId);
         return bundle;
     }
+
 
 }

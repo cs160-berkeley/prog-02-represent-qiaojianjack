@@ -46,9 +46,10 @@ public class ElectionActivity extends SensorActivity {
                 String locString = fromWatchEntry.getStringExtra("location");
                 vLocation.setText(locString);
 
-                float obamaPercent = 0f;
-                float romneyPercent = 0f;
+                String obamaPercent = fromWatchEntry.getStringExtra("obama");
+                String romneyPercent = fromWatchEntry.getStringExtra("romney");
 
+                /*
                 //TODO: correctly set percentage
                 if (locString.equalsIgnoreCase("Alameda, CA")) {
                     obamaPercent = 60f;
@@ -57,12 +58,13 @@ public class ElectionActivity extends SensorActivity {
                     obamaPercent = 73.8f;
                     romneyPercent = 26.2f;
                 }
+                */
 
-                vObamaPercent.setText(Float.toString(obamaPercent)+"%");
-                vRomneyPercent.setText(Float.toString(romneyPercent)+"%");
+                vObamaPercent.setText(obamaPercent+"%");
+                vRomneyPercent.setText(romneyPercent+"%");
 
-                pie.addItem("Obama", obamaPercent, res.getColor(R.color.background));
-                pie.addItem("Romney", romneyPercent, res.getColor(R.color.red));
+                pie.addItem("Obama", Float.valueOf(obamaPercent), res.getColor(R.color.background));
+                pie.addItem("Romney", Float.valueOf(romneyPercent), res.getColor(R.color.red));
             }
 
         });

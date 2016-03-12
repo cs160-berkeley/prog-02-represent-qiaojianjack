@@ -41,16 +41,16 @@
                     android:textColor="@color/white"
                     android:textStyle="italic"/>
 
-                <ImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+                <cs160.represent.CircledImageView
                     android:id="@+id/photo_watch"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="17dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="3"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitEnd"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/dianne"
                     />
 

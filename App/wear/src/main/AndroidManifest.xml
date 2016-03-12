@@ -38,6 +38,10 @@
 
         <activity android:name=".SensorActivity" />
         <activity android:name=".ShakeActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="fa4276234c3de7d0e028f198ed16b9d98428535f" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

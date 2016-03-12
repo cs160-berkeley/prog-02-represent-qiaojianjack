@@ -17,10 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.analytics.ecommerce.Product;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class RepInfo extends Activity {
 
@@ -33,7 +35,7 @@ public class RepInfo extends Activity {
         LayoutInflater inflater = (LayoutInflater)this.getSystemService
                 (Context.LAYOUT_INFLATER_SERVICE);
 
-        String locString = fromRepList.getStringExtra("location");
+        String locString = Representative.location;
 
         Typeface sansSerif = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-Regular.ttf");
         Typeface sansSerifLight = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-Light.ttf");
@@ -75,7 +77,7 @@ public class RepInfo extends Activity {
         Button back = (Button) findViewById(R.id.back);
         back.setTypeface(sansSerifLight);
 
-        Integer repId = fromRepList.getIntExtra("repId", -1);
+        String repId = fromRepList.getStringExtra("repId");
 
         Representative rep = Representative.repMap.get(repId);
 
@@ -90,13 +92,22 @@ public class RepInfo extends Activity {
         } else {
             vParty.setImageResource(R.drawable.iparty);
         }
-        vPhoto.setImageResource(rep.photoId);
+
+        Picasso.with(this).load(rep.imgUrl).into(vPhoto);
         vEmail.setText(rep.email);
         vWebsite.setText(rep.website);
         vTermEndDate.setText(rep.termEndDate);
-        vCommittees.setText(TextUtils.join("\n", rep.committees));
+        if (rep.committees.size() == 0) {
+            vCommittees.setText("None");
+        } else {
+            vCommittees.setText(TextUtils.join(";\n", rep.committees));
+        }
 
-        ArrayList<String> bills = rep.recentBills;
+        ArrayList<String> bills = new ArrayList<>();
+        for (int i = 0; i < rep.recentBills.size(); i++) {
+            Map.Entry<String, String> tuple = rep.recentBills.get(i);
+            bills.add(tuple.getKey() + "\n" + tuple.getValue());
+        }
         LinearLayout recentBills = (LinearLayout) findViewById(R.id.recent_bills);
         BillAdapter billAdapter = new BillAdapter(this, 0, bills);
 
